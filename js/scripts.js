@@ -25,11 +25,11 @@ $(document).ready(function() {
     $("#output").hide();
     $("#issueSection").show();
   });
-  $("#logoutButton").click(function() {
-    sessionStorage.removeItem("type");
-    sessionStorage.removeItem("user");
-    location.assign("/index.html");
-  });
+  // $("#logoutButton").click(function() {
+  //   sessionStorage.removeItem("type");
+  //   sessionStorage.removeItem("user");
+  //   location.assign("/index.html");
+  // });
   $("#sidebarCollapse").on("click", function() {
     $("#sidebar").toggleClass("active");
   });
@@ -99,7 +99,7 @@ $(document).ready(function() {
       // $("#output").show();
       if (activeUserType === "Technician") {
         location.assign("http:/technician.html");
-      } else {
+      } else if (activeUserType === "Requester") {
         location.assign("http:/requester.html");
       }
     } else {
