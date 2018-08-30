@@ -2,8 +2,8 @@
 var user;
 var pass;
 var type;
-var activeUser = sessionStorage.getItem('user');
-var activeUserType = sessionStorage.getItem('type');
+var activeUser = sessionStorage.getItem("user");
+var activeUserType = sessionStorage.getItem("type");
 
 // Create Databases for users and tickets
 var users = JSON.parse(localStorage.getItem("users") || "[]");
@@ -11,24 +11,39 @@ var issues = JSON.parse(localStorage.getItem("issues") || "[]");
 
 // User Interface Logic
 $(document).ready(function() {
-
-  $('.txt1').click(function(){
-    $('.signup-form').hide();
-    $('.login-form').show();
-  });
-  $('#regButton').click(function(){
-    $('#loginSection').hide();
-    $('#registerSection').show();
+  $("#regButton").click(function() {
+    $("#loginSection").hide();
+    $("#registerSection").show();
   });
 
-  $('#logButton').click(function(){
-    $('#loginSection').show();
-    $('#registerSection').hide();
+  $("#logButton").click(function() {
+    $("#loginSection").show();
+    $("#registerSection").hide();
   });
 
-  $('#issueButton').click(function(){
-    $('#output').hide();
-    $('#issueSection').show();
+  $("#issueButton").click(function() {
+    $("#output").hide();
+    $("#issueSection").show();
+  });
+  $("#logoutButton").click(function() {
+    sessionStorage.removeItem("type");
+    sessionStorage.removeItem("user");
+    location.assign("/index.html");
+  });
+  $("#sidebarCollapse").on("click", function() {
+    $("#sidebar").toggleClass("active");
+  });
+
+  $(".dashboard-icon").on("click", function() {
+    $(".tickets").hide();
+    $(".dashboard").show();
+    $(".navbar-brand").text("Dashboard");
+  });
+
+  $(".tickets-icon").on("click", function() {
+    $(".dashboard").hide();
+    $(".tickets").show();
+    $(".navbar-brand").text("Tickets");
   });
 
   $("#register").submit(function(event) {
@@ -41,8 +56,6 @@ $(document).ready(function() {
     var pass = $("#pass").val();
     var userType = $("#usertype option:selected").val();
 
-
-
     users.push({
       id: users.length,
       username: user,
@@ -52,16 +65,13 @@ $(document).ready(function() {
       password: pass,
       usertype: userType
     });
-
-
+    location.assign("http:/index.html");
     localStorage.setItem("users", JSON.stringify(users));
-    document.querySelector('#register').reset();
-
+    document.querySelector("#register").reset();
   });
 
   $("#login").submit(function(event) {
     event.preventDefault();
-
     user = $("#username").val();
     pass = $("#password").val();
 
@@ -79,24 +89,37 @@ $(document).ready(function() {
       }
     }
 
-    if (user === '' || pass === '') {
-      alert('Please enter your credentials');
+    if (user === "" || pass === "") {
+      //$("#loginSection").addClass("animated shake");
+      $(".alert").text("Please enter your credentials!!");
+      $(".alert").show();
+      //alert("");
     } else if (loggedin === true) {
-      $('#loginSection').hide();
-      $('#output').show();
+      // $("#loginSection").hide();
+      // $("#output").show();
+      location.assign("http:/welcome page.html");
     } else {
-      alert("Wrong username or password!");
+      //$("#loginSection").addClass("animated shake");
+      $(".alert").text("Wrong username or password!!");
+      $(".alert").show();
+      //alert("Wrong username or password!");
     }
 
-    sessionStorage.setItem('user', user);
-    sessionStorage.setItem('type', type);
+    document.querySelector("#login").reset();
+
+    setTimeout(function() {
+      $(".alert").hide();
+    }, 1500);
+
+    sessionStorage.setItem("user", user);
+    sessionStorage.setItem("type", type);
   });
 
   $("#ticket").submit(function(event) {
     event.preventDefault();
     var subject = $("#subject").val();
     var description = $("#description").val();
-    var severity = $('input[name=severity]:checked').val();
+    var severity = $("input[name=severity]:checked").val();
     var assignedTo = $("#assignedto option:selected").val();
 
     function uniqueID() {
@@ -143,15 +166,24 @@ $(document).ready(function() {
     });
 
     localStorage.setItem("issues", JSON.stringify(issues));
-    document.querySelector('#ticket').reset();
+    document.querySelector("#ticket").reset();
 
-    $('#output').show();
-    $('#issueSection').hide();
+    $("#ticket-modal").modal("hide");
 
+    $("#output").show();
+    $("#issueSection").hide();
   });
   users.forEach(function(user) {
     if (user.usertype === "Technician") {
       $("#assignedto").append("<option>" + user.username + "</option>");
+      $("#contacts").append(`
+      <div class="contact">
+        <h6><i class="fas fa-user"></i>${user.firstname} ${user.lastname}</h6>
+        <p><i class="fas fa-envelope"></i> <a href="https://${user.email}">${
+        user.email
+      }</a></p>
+      </div>
+      `);
     }
   });
 
@@ -167,23 +199,32 @@ $(document).ready(function() {
         }
       }
       if (issue.assignedto === activeUser) {
-        $('#row').append(`
-         <div class="col-md-6 my-4">
-         <div class="card">
-           <div class="card-header text-center"><strong>Issue ID:</strong> ${issue.issueid}</div>
-           <div class="card-body">
-             <h5 class="card-title">${issue.subject}</h5>
-             <h6 class="card-subtitle mb-2 text-muted">Assigned to: ${issue.assignedto}</h6>
-             <p class="card-text">${issue.description}</p>
-             <div><span>Requested by: ${issue.requester}</span></div>
-             <span class="badge badge-primary">${issue.status}</span>
-             ${severity()}
-             <a href="#" class="d-block my-3 card-link" data-toggle="modal" data-target="#exampleModal">View More</a>
-           </div>
-           <div class="card-footer text-muted text-center">${issue.date}</div>
-         </div>
-
-       `);
+        if (issue.status === "open") {
+          $("#open-issues").append(`
+          <tr data-toggle="modal" data-target="#fast-car1">
+          <th>${issue.issueid}</th>
+          <td>${issue.subject}</td>
+          <td>${issue.assignedto}</td>
+        </tr>
+        <div class="modal fade" id="fast-car1" tabindex="-1" role="dialog" aria-labelledby="fast-car1">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="fast-car1-label">Fast Car</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                I have been experiencing fast cars. Could you please help?
+              </div>
+              <div class="modal-footer">
+                Assigned to: Tom
+              </div>
+            </div>
+          </div>
+        </div>`);
+        }
       }
     });
   } else {
@@ -198,24 +239,58 @@ $(document).ready(function() {
         }
       }
       if (issue.requester === activeUser) {
-        $('#row').append(`
-         <div class="col-md-6 my-4">
-         <div class="card">
-           <div class="card-header">${issue.issueid}</div>
-           <div class="card-body">
-             <h5 class="card-title">${issue.subject}</h5>
-             <h6 class="card-subtitle mb-2 text-muted">Assigned to: ${issue.assignedto}</h6>
-             <p class="card-text">${issue.description}</p>
-             <div><span>Requested by: You</span></div>
-             <span class="badge badge-primary">${issue.status}</span>
-             ${severity()}
-           </div>
-           <div class="card-footer text-muted text-center">${issue.date}</div>
-         </div>
-
-       `);
+        if (issue.status === "open") {
+          // $("#open-issues").append(
+          //   `<tr data-toggle="modal" data-target="#fast-car">
+          //     <th>67890</th>
+          //     <td>Fast Car</td>
+          //     <td>Maryann</td>
+          //   </tr>
+          //   <div class="modal fade" id="fast-car" tabindex="-1" role="dialog" aria-labelledby="fast-car">
+          //     <div class="modal-dialog" role="document">
+          //       <div class="modal-content">
+          //         <div class="modal-header">
+          //           <h5 class="modal-title" id="fast-car-label">Fast Car</h5>
+          //           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          //             <span aria-hidden="true">&times;</span>
+          //           </button>
+          //         </div>
+          //         <div class="modal-body">
+          //           I have been experiencing fast cars. Could you please help?
+          //         </div>
+          //         <div class="modal-footer">
+          //           Assigned to: Maryann
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </div>`
+          // );
+          $("#ticket-cards").append(`
+          <div class="card text-white bg-dark mb-3">
+          <div class="card-header">${issue.issueid}</div>
+          <div class="card-body">
+            <h5 class="card-title">${issue.subject}</h5>
+            <p class="card-text"><i class="fas fa-exclamation-circle"></i>
+            <span>${severity()}</span> <i class="fas fa-user"></i>
+              <span class="technician">${issue.assignedto}</span></p>
+          </div>
+        </div>
+          `);
+        }
       }
+      // else if (issue.) {
+      //   $("#ticket-cards").append(`
+      //     <div class="card text-white bg-dark mb-3">
+      //     <div class="card-header">${issue.issueid}</div>
+      //     <div class="card-body">
+      //       <h5 class="card-title">${issue.subject}</h5>
+      //       <p class="card-text"><i class="fas fa-exclamation-circle"></i>
+      //       <span>${severity()}</span> <i class="fas fa-user"></i>
+      //         <span class="technician">${issue.assignedto}</span></p>
+      //     </div>
+      //   </div>
+      //     `);
+      // }
     });
   }
-
 });
