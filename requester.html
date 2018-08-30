@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="css/user-styles.css">
+  <script type="text/javascript" src="js/user-scripts.js"></script>
+  <title>Phoenix - Requester</title>
+</head>
+
+<body>
+  <div class="container flex">
+    <div class="header fixed-top">
+      <nav class="navbar navbar-expand-md">
+        <span>
+          <i class="fab fa-phoenix-framework fa-2x home-icon text-dark"></i>
+        </span>
+        <div class="navbar-brand">Phoenix Issue Tracker - Dashboard</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbar1">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                    <i class="fas fa-tachometer-alt fa-2x dashboard-icon" title="Dashboard"></i>
+                  </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                    <i class="fas fa-list-alt fa-2x tickets-icon" title="Tickets"></i>
+                  </a>
+            </li>
+            <li class="nav-item dropdown">
+              <span class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell fa-2x"></i>
+                  </span>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Notifications</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Server Down!</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <span class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                  </span>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Requester</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="dashboard">
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Thanks for partnering with Phoenix!</strong>
+      </div>
+      <div class="alert alert-info alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Keep checking your tickets to confirm their status!</strong>
+      </div>
+      <div class="ticket-tables row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <i class="fas fa-spinner fa-2x open-tickets-icon"></i>
+              <span class="open-tickets-count"></span>
+              <span>Open Tickets</span>
+            </div>
+          </div>
+          <table class="open-tickets table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Assigned To</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-toggle="modal" data-target="#slow-wifi-1r">
+                <th>12345</th>
+                <td>Slow WIFI</td>
+                <td>Sam Kasiera</td>
+              </tr>
+              <div class="modal fade" id="slow-wifi-1r" tabindex="-1" role="dialog" aria-labelledby="slow-wifi-1r">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="slow-wifi-1r-label">Slow WIFI</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      I have been having slow connection for two hours. Please help!
+                    </div>
+                    <div class="modal-footer">
+                      Assigned to: Sam Kasiera
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <tr data-toggle="modal" data-target="#fast-car-1r">
+                <th>67890</th>
+                <td>Fast Car</td>
+                <td>Maryann</td>
+              </tr>
+              <div class="modal fade" id="fast-car-1r" tabindex="-1" role="dialog" aria-labelledby="fast-car-1r">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="fast-car-1r-label">Fast Car</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      I have been experiencing fast cars. Could you please help?
+                    </div>
+                    <div class="modal-footer">
+                      Assigned to: Maryann
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <i class="fas fa-clock fa-2x in-progress-icon"></i>
+              <span class="in-progress-tickets-count"></span>
+              <span>Tickets in Progress</span>
+            </div>
+          </div>
+          <table class="tickets-in-progress table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Assigned To</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-toggle="modal" data-target="#slow-wifi-2r">
+                <th>12345</th>
+                <td>Slow WIFI</td>
+                <td>Sam Kasiera</td>
+              </tr>
+              <div class="modal fade" id="slow-wifi-2r" tabindex="-1" role="dialog" aria-labelledby="slow-wifi-2r">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="slow-wifi-2r-label">Slow WIFI</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      I have been having slow connection for two hours. Please help!
+                    </div>
+                    <div class="modal-footer">
+                      Assigned to: Sam Kasiera
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <tr data-toggle="modal" data-target="#fast-car-2r">
+                <th>67890</th>
+                <td>Fast Car</td>
+                <td>Maryann</td>
+              </tr>
+              <div class="modal fade" id="fast-car-2r" tabindex="-1" role="dialog" aria-labelledby="fast-car-2r">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="fast-car-2r-label">Fast Car</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      I have been experiencing fast cars. Could you please help?
+                    </div>
+                    <div class="modal-footer">
+                      Assigned to: Maryann
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <i class="fas fa-check-circle fa-2x closed-icon"></i>
+              <span class="closed-tickets-count"></span>
+              <span>Closed Tickets</span>
+            </div>
+          </div>
+          <table class="closed-tickets table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Assigned To</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-toggle="modal" data-target="#slow-wifi-3r">
+                <th>12345</th>
+                <td>Slow WIFI</td>
+                <td>Sam Kasiera</td>
+              </tr>
+              <div class="modal fade" id="slow-wifi-3r" tabindex="-1" role="dialog" aria-labelledby="slow-wifi-3r">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="slow-wifi-3r-label">Slow WIFI</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      I have been having slow connection for two hours. Please help!
+                    </div>
+                    <div class="modal-footer">
+                      Assigned to: Sam Kasiera
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <tr data-toggle="modal" data-target="#fast-car-3r">
+                <th>67890</th>
+                <td>Fast Car</td>
+                <td>Maryann</td>
+              </tr>
+              <div class="modal fade" id="fast-car-3r" tabindex="-1" role="dialog" aria-labelledby="fast-car-3r">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="fast-car-3r-label">Fast Car</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      I have been experiencing fast cars. Could you please help?
+                    </div>
+                    <div class="modal-footer">
+                      Assigned to: Maryann
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <button type="button" id="create-ticket" class="btn btn-success btn-lg" data-toggle="modal" data-target="#ticket-form">Create New Ticket</button>
+    </div>
+      <div class="modal fade" id="ticket-form" tabindex="-1" role="dialog" aria-labelledby="ticket-form-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="ticket-form-title">Create New Ticket:</h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Subject</span>
+                    </div>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="card">
+                    <div class="card-header text-center">
+                      Description
+                    </div>
+                    <textarea class="form-control" rows="4" cols="80"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="card">
+                    <div class="card-header text-center">
+                      Severity
+                    </div>
+                    <div class="button-group inline pull-left">
+                      <button type="button" class="btn btn-success btn-lg severity">Low</button>
+                      <button type="button" class="btn btn-warning text-white btn-lg severity">Medium</button>
+                      <button type="button" class="btn btn-danger btn-lg severity">High</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="card">
+                    <div class="card-header text-center">
+                      Assign to
+                    </div>
+                    <select class="form-control">
+                      <option value="0" hidden>Choose technician</option>
+                      <option value="1">Max</option>
+                      <option value="2">Sam</option>
+                      <option value="3">Maryann</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" name="submit-ticket" class="btn btn-success" id="submit-ticket">Submit Ticket <i class="fas fa-share-square"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="tickets">
+      <div class="row">
+        <div class="col-md-9 ticket-cards">
+          <div class="card mb-3">
+            <div class="card-header">12345</div>
+            <div class="card-body">
+              <h5 class="card-title">Slow WIFI</h5>
+              <p class="card-text"><i class="fas fa-exclamation-circle"></i> <span>High</span> <i class="fas fa-user"></i> <span class="technician">Sam Kasiera</span></p>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">67890</div>
+            <div class="card-body">
+              <h5 class="card-title">Fast Car</h5>
+              <p class="card-text"><i class="fas fa-exclamation-circle"></i> <span>Low</span> <i class="fas fa-user"></i> <span class="technician">Maryann</span></p>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">12345</div>
+            <div class="card-body">
+              <h5 class="card-title">Slow WIFI</h5>
+              <p class="card-text"><i class="fas fa-exclamation-circle"></i> <span>Medium</span> <i class="fas fa-user"></i> <span class="technician"> Sam Kasiera</span></p>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">67890</div>
+            <div class="card-body">
+              <h5 class="card-title">Fast Car</h5>
+              <p class="card-text"><i class="fas fa-exclamation-circle"></i> <span>High</span> <i class="fas fa-user"></i> <span class="technician">Maryann</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 contacts">
+          <h5>Technician's Contact Information</h5>
+          <div class="contact">
+            <h6><i class="fas fa-user"></i> Sam Kasiera</h6>
+            <p><i class="fas fa-envelope"></i> <a href="">kasieras@gmail.com</a></p>
+          </div>
+          <div class="contact">
+            <h6><i class="fas fa-user"></i> Maryann</h6>
+            <p><i class="fas fa-envelope"></i> <a href="">naygitonga4@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer fixed-bottom">
+      <footer>
+        <div class="contact-info text-center">
+          <h5>Contact us on:</h5>
+          <a href=""><i class="fas fa-envelope"></i></a>
+          <a href=""><i class="fas fa-phone-square"></i></a>
+          <a href=""><i class="fab fa-facebook"></i></a>
+          <a href=""><i class="fab fa-twitter-square"></i></a>
+          <a href=""><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="copyright-info text-center">
+          Copyright &copy; 2018 Phoenix Issue Tracker. All rights reserved.
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+</body>
+
+</html>
