@@ -15,80 +15,80 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="alert alert-danger mx-auto w-50 my-5" role="alert"></div>
-    <div id="loginSection">
-      <div class="card my-5 mx-auto w-50">
-        <h1 class="card-header text-center">Login</h1>
-        <div class="card-body">
-          <form id="login" method="GET" action="/welcome page.html">
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" name="username" class="form-control" id="username">
-            </div>
-
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" class="form-control" id="password">
-            </div>
-          </form>
-        </div>
-        <div class="card-footer">
-          <button type="submit" form="login" class="btn btn-primary">Login</button>
-          <a href="register.html" class="btn btn-secondary">Register</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New Issue</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form class="" action="index.html" id="ticket">
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" name="" id="subject" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea cols="30" rows="7" id="description" class="form-control"></textarea>
-            </div>
-
-            <p>Severity</p>
-
-            <div class="form-check">
-              <input type="radio" name="severity" class="form-check-input" value="high" id="high">
-              <label for="high" class="form-check-label">High</label>
-            </div>
-            <div class="form-check">
-              <input type="radio" name="severity" class="form-check-input" value="medium" id="medium">
-              <label for="medium" class="form-check-label">Medium</label>
-            </div>
-            <div class="form-check">
-              <input type="radio" name="severity" class="form-check-input" value="low" id="low">
-              <label for="low" class="form-check-label">Low</label>
-            </div>
-
-            <div class="form-group">
-              <label for="assignedto">Assigned To</label>
-              <select id="assignedto" class="form-control">
-                <option hidden>Select</option>
+  <div class="limiter">
+    <div class="container container-login">
+      <div class="wrapper">
+        <form class="signup-form">
+          <span class="signup-form-logo">
+              <i class="fab fa-phoenix-framework"></i>
+            </span>
+          <span class="signup-form-title">Sign up</span>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="username" placeholder="Username">
+            <span class="focus-input" data-placeholder="&#xf207;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="first-name" placeholder="First Name">
+            <span class="focus-input" data-placeholder="&#xf225;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="last-name" placeholder="Last Name">
+            <span class="focus-input" data-placeholder="&#xf225;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="email" placeholder="Email">
+            <span class="focus-input" data-placeholder="&#xf15a;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="password" name="password" placeholder="Password">
+            <span class="focus-input" data-placeholder="&#xf191;"></span>
+          </div>
+          <div class="form-group">
+            <select class="form-control signup-input">
+                <option value="0" hidden>Choose category</option>
+                <option class="select" value="1">Technician</option>
+                <option class="select" value="2">Requester</option>
               </select>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer mr-auto">
-          <button type="submit" form="ticket" class="btn btn-success">Submit</button>
-        </div>
+          </div>
+          <div class="form-group form-check signup-checkbox">
+            <input type="checkbox" class="form-check-input signup-input-checkbox" id="rem-me">
+            <label class="form-check-label signup-label" for="rem-me">
+                Remember me
+              </label>
+          </div>
+          <div class="container-signup-btn">
+            <button class="btn signup-btn" type="submit" name="signup">Sign Up</button>
+          </div>
+          <br><br>
+          <div class="text-center">
+            <a class="txt1" href="#">
+              Already a member?
+            </a>
+          </div>
+        </form>
+        <form class="login-form">
+          <span class="login-form-logo">
+              <i class="fab fa-phoenix-framework"></i>
+            </span>
+          <span class="login-form-title">Log in</span>
+          <div class="form-group validate-input">
+            <input class="form-control login-input" type="text" name="username" placeholder="Username">
+            <span class="focus-input" data-placeholder="&#xf207;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control login-input" type="password" name="password" placeholder="Password">
+            <span class="focus-input" data-placeholder="&#xf191;"></span>
+          </div>
+          <div class="form-group form-check login-checkbox">
+            <input type="checkbox" class="form-check-input login-input-checkbox" id="rem-me">
+            <label class="form-check-label login-label" for="rem-me">
+                Remember me
+              </label>
+          </div>
+          <div class="container-login-btn">
+            <button class="btn login-btn" type="submit" name="login">Login</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
