@@ -97,7 +97,11 @@ $(document).ready(function() {
     } else if (loggedin === true) {
       // $("#loginSection").hide();
       // $("#output").show();
-      location.assign("http:/welcome page.html");
+      if (activeUserType === "Technician") {
+        location.assign("http:/technician.html");
+      } else {
+        location.assign("http:/requester.html");
+      }
     } else {
       //$("#loginSection").addClass("animated shake");
       $(".alert").text("Wrong username or password!!");
@@ -167,8 +171,6 @@ $(document).ready(function() {
 
     localStorage.setItem("issues", JSON.stringify(issues));
     document.querySelector("#ticket").reset();
-
-    $("#ticket-modal").modal("hide");
 
     $("#output").show();
     $("#issueSection").hide();
@@ -266,13 +268,16 @@ $(document).ready(function() {
           //   </div>`
           // );
           $("#ticket-cards").append(`
-          <div class="card text-white bg-dark mb-3">
+          <div class="card text-white mb-3">
           <div class="card-header">${issue.issueid}</div>
           <div class="card-body">
             <h5 class="card-title">${issue.subject}</h5>
             <p class="card-text"><i class="fas fa-exclamation-circle"></i>
             <span>${severity()}</span> <i class="fas fa-user"></i>
               <span class="technician">${issue.assignedto}</span></p>
+          </div>
+          <div class="card-footer" style="background-color: #082845; ">
+            ${issue.date}
           </div>
         </div>
           `);

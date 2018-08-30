@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <!-- <div class="container">
     <div id="registerSection">
       <h1>Register</h1>
       <form id="register">
@@ -53,6 +53,61 @@
         </div>
       </form>
       <button type="submit" form="register" class="btn btn-secondary">Register</button>
+    </div>
+  </div> -->
+
+  <div class="limiter">
+    <div class="container container-login" style="background-image: url('/image/bg-01.jpg');">
+      <div class="wrapper">
+        <form class="signup-form" id="register">
+          <span class="signup-form-logo">
+              <i class="fab fa-phoenix-framework"></i>
+            </span>
+          <span class="signup-form-title">Sign up</span>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="username" placeholder="Username" id="user">
+            <span class="focus-input" data-placeholder="&#xf207;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="first-name" placeholder="First Name" id="firstname">
+            <span class="focus-input" data-placeholder="&#xf225;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="last-name" placeholder="Last Name" id="lastname">
+            <span class="focus-input" data-placeholder="&#xf225;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="text" name="email" placeholder="Email" id="email">
+            <span class="focus-input" data-placeholder="&#xf15a;"></span>
+          </div>
+          <div class="form-group validate-input">
+            <input class="form-control signup-input" type="password" name="password" placeholder="Password" id="pass">
+            <span class="focus-input" data-placeholder="&#xf191;"></span>
+          </div>
+          <div class="form-group">
+            <select class="form-control signup-input" id="usertype">
+                <option hidden>Choose category</option>
+                <option class="select">Technician</option>
+                <option class="select">Requester</option>
+              </select>
+          </div>
+          <div class="form-group form-check signup-checkbox">
+            <input type="checkbox" class="form-check-input signup-input-checkbox" id="rem-me">
+            <label class="form-check-label signup-label" for="rem-me">
+                Remember me
+              </label>
+          </div>
+          <div class="container-signup-btn">
+            <button class="btn signup-btn" form="register" type="submit" name="signup">Sign Up</button>
+          </div>
+          <br><br>
+          <div class="text-center">
+            <a class="txt1" href="#">
+              Already a member?
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
