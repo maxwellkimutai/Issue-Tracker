@@ -15,5 +15,4 @@ $(document).ready(function(){
     $('.tickets').show();
     $('.navbar-brand').text("Phoenix Issue Tracker - My Tickets");
   });
-
 });

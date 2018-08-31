@@ -1,67 +1,71 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   border: none;
 }
-body{
+body {
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 @font-face {
   font-family: Poppins-Regular;
-  src: url('/poppins/Poppins-Regular.ttf');
+  src: url("/poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('/poppins/Poppins-Medium.ttf');
+  src: url("/poppins/Poppins-Medium.ttf");
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('/poppins/Poppins-Bold.ttf');
+  src: url("/poppins/Poppins-Bold.ttf");
 }
 
 @font-face {
   font-family: Poppins-SemiBold;
-  src: url('/poppins/Poppins-SemiBold.ttf');
+  src: url("/poppins/Poppins-SemiBold.ttf");
 }
 
-.ticket-form-wrapper, .tickets{
+.ticket-form-wrapper,
+.tickets {
   display: none;
 }
 
-.dropdown{
+.dropdown {
   display: inline-block;
 }
 /* i{
   color: #222;
 } */
-.alert{
+.alert {
   margin-top: 10px;
 }
-.panel{
+.panel {
   background-color: #fff;
   text-align: center;
   padding: 20px;
   margin-top: 10px;
 }
 
-.header i, span.dropdown-toggle, .contacts i, .contacts{
-  color:#fff;
+.header i,
+span.dropdown-toggle,
+.contacts i,
+.contacts {
+  color: #fff;
 }
 
-.contacts a{
+.contacts a {
   text-decoration: none;
   color: #fff;
 }
 
-.contacts a:hover{
+.contacts a:hover {
   text-decoration: underline;
 }
 
-.contacts{
+.contacts {
   padding-top: 25px;
   position: fixed;
   top: 71px;
@@ -71,15 +75,15 @@ body{
   color: #fff;
 }
 
-.contacts h6{
+.contacts h6 {
   font-size: 18px;
 }
 
-.contact{
+.contact {
   padding-top: 10px;
 }
 
-.home-icon{
+.home-icon {
   color: #000;
   /* font-size: 60px; */
   display: -webkit-box;
@@ -95,15 +99,15 @@ body{
   background-color: #fff;
 }
 
-.navbar span{
+.navbar span {
   padding-right: 10px;
 }
 
-.tickets{
+.tickets {
   padding: 80px 16px 0 0;
 }
 
-.ticket-tables .open-tickets-icon{
+.ticket-tables .open-tickets-icon {
   color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -115,9 +119,9 @@ body{
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #7C0A02;
+  background-color: #7c0a02;
 }
-.ticket-tables .in-progress-icon{
+.ticket-tables .in-progress-icon {
   color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -129,10 +133,10 @@ body{
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color:#FEB204;
+  background-color: #feb204;
 }
 
-.ticket-tables .closed-icon{
+.ticket-tables .closed-icon {
   color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -147,63 +151,77 @@ body{
   background-color: #1cac78;
 }
 
-.panel span{
+.panel span {
   font-size: 22px;
   font-weight: bold;
 }
-.dashboard{
+.dashboard {
   padding-top: 80px;
   bottom: 120px;
+  margin-bottom: 80px;
 }
 
-.navbar, .footer{
+.tickets {
+  margin-bottom: 100px;
+}
+
+.navbar,
+.footer {
   background-color: #082845;
   color: #fff;
 }
 
-.footer i{
+.footer i {
   color: #fff;
   font-size: 20px;
   padding-left: 10px;
 }
 
-.panel{
+.panel {
   background-color: #082845;
   color: #fff;
 }
 
-#create-ticket, #submit-ticket{
+#create-ticket,
+#submit-ticket {
   border: none;
   border-radius: 25px;
   align-self: center;
 }
 
-#create-ticket:hover, #submit-ticket:hover{
+#create-ticket:hover,
+#submit-ticket:hover {
   background-color: #003366;
 }
 
-.card-header{
+.card-header,
+.card-footer {
   background-color: #082845;
   color: #fff;
 }
-.card-body{
+.card-body {
   background-color: #fff;
   color: #000;
 }
-.severity{
+.severity {
   padding: 8px 20px;
   margin: 2px 30px;
 }
-
-@media all and (max-width:767px) {
-  .contacts{
+.nav-tabs {
+  margin-left: 15px;
+  width: 1063px;
+}
+@media all and (max-width: 767px) {
+  .contacts {
     position: static;
     margin-left: 15px;
   }
-  .footer, .header{
+  .footer,
+  .header {
     position: sticky;
   }
-  .dashboard, .tickets{
+  .dashboard,
+  .tickets {
     padding-top: 20px;
   }
 }
