@@ -305,7 +305,21 @@ $(document).ready(function() {
           location.reload();
         });
       } else if (issue.requester === activeUser) {
-
+        $("#my-tickets-inner").append(`
+        <div class="card text-white mb-3">
+        <div class="card-header">${issue.issueid}</div>
+        <div class="card-body">
+          <h5 class="card-title">${issue.subject}</h5>
+          <p class="card-text"><i class="fas fa-exclamation-circle"></i>
+          <span>${severity()}</span> <i class="fas fa-user"></i>
+            <span class="technician">${issue.assignedto}</span></p>
+          <p>Status: <span class="text-muted">${issue.status}</span></p>
+        </div>
+        <div class="card-footer" style="background-color: #082845; ">
+          ${issue.date}
+        </div>
+      </div>
+        `);
       }
     });
   } else {
@@ -325,7 +339,7 @@ $(document).ready(function() {
           <tr data-toggle="modal" data-target="#issue-${issue.id}">
           <th>${issue.issueid}</th>
           <td>${issue.subject}</td>
-          <td>${issue.requester}</td>
+          <td>${issue.assignedto}</td>
         </tr>`);
           $("#output1").append(`
           <div class="modal fade" id="issue-${
@@ -356,7 +370,7 @@ $(document).ready(function() {
           <tr data-toggle="modal" data-target="#issue-${issue.id}">
           <th>${issue.issueid}</th>
           <td>${issue.subject}</td>
-          <td>${issue.requester}</td>
+          <td>${issue.assignedto}</td>
         </tr>`);
           $("#output1").append(`
           <div class="modal fade" id="issue-${
@@ -387,7 +401,7 @@ $(document).ready(function() {
           <tr data-toggle="modal" data-target="#issue-${issue.id}">
           <th>${issue.issueid}</th>
           <td>${issue.subject}</td>
-          <td>${issue.requester}</td>
+          <td>${issue.assignedto}</td>
         </tr>`);
           $("#output1").append(`
           <div class="modal fade" id="issue-${
